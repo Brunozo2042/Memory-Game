@@ -137,9 +137,11 @@ function flipCard() {
                 }
                 setTimeout(() => {
 
-
                     var cardView1 = document.getElementById(card1.id)
                     var cardView2 = document.getElementById(card2.id)
+
+                    card1.flipped = false
+                    card2.flipped = false
 
                     cardView1.classList.remove(FLIP)
                     cardView2.classList.remove(FLIP)
@@ -161,8 +163,10 @@ function setCard(id) {
 
     if (!card1) {
         card1 = card
+        card1.flipped = true
     } else {
         card2 = card
+        card2.flipped = true
         lockMode = true
     }
     return true
@@ -173,6 +177,7 @@ function match() {
 }
 
 function clearCards() {
+
     card1 = null
     card2 = null
     lockMode = false
